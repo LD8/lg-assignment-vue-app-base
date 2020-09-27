@@ -11,7 +11,7 @@ module.exports = merge(common, {
   },
   devtool: "cheap-eval-module-source-map",
   devServer: {
-    hot: true,
+    hotOnly: true,
     contentBase: "public",
   },
   plugins: [
