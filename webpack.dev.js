@@ -8,6 +8,7 @@ module.exports = merge(common, {
   output: {
     path: path.join(__dirname, "dist"),
     filename: "bundle.js",
+    // publicPath: "dist/",
   },
   devtool: "cheap-eval-module-source-map",
   devServer: {

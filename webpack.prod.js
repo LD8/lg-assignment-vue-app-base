@@ -11,9 +11,6 @@ module.exports = merge(common, {
     path: path.join(__dirname, "build"),
     filename: "bundle.js",
   },
-  // devServer: {
-  //   hot: true,
-  // },
   plugins: [
     new webpack.DefinePlugin({
       BASE_URL: JSON.stringify("http://localhost:8080/"),
