@@ -1,24 +1,24 @@
-const { merge } = require("webpack-merge");
-const common = require("./webpack.common");
-const webpack = require("webpack");
-const path = require("path");
+const { merge } = require('webpack-merge')
+const common = require('./webpack.common')
+const webpack = require('webpack')
+const path = require('path')
 
 module.exports = merge(common, {
-  mode: "development",
+  mode: 'development',
   output: {
-    path: path.join(__dirname, "dist"),
-    filename: "bundle.js",
+    path: path.join(__dirname, 'dist'),
+    filename: 'bundle.js'
     // publicPath: "dist/",
   },
-  devtool: "cheap-eval-module-source-map",
+  devtool: 'cheap-eval-module-source-map',
   devServer: {
     hotOnly: true,
-    contentBase: "public",
+    contentBase: 'public'
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
-      BASE_URL: JSON.stringify("http://localhost:8080/"),
-    }),
-  ],
-});
+      BASE_URL: JSON.stringify('http://localhost:8080/')
+    })
+  ]
+})

@@ -1,23 +1,23 @@
-const { merge } = require("webpack-merge");
-const common = require("./webpack.common");
-const CopyWebpackPlugin = require("copy-webpack-plugin");
-const path = require("path");
-const webpack = require("webpack");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const { merge } = require('webpack-merge')
+const common = require('./webpack.common')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const path = require('path')
+const webpack = require('webpack')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = merge(common, {
-  mode: "production",
+  mode: 'production',
   output: {
-    path: path.join(__dirname, "build"),
-    filename: "bundle.js",
+    path: path.join(__dirname, 'build'),
+    filename: 'bundle.js'
   },
   plugins: [
     new webpack.DefinePlugin({
-      BASE_URL: JSON.stringify("http://localhost:8080/"),
+      BASE_URL: JSON.stringify('http://localhost:8080/')
     }),
     new CopyWebpackPlugin({
-      patterns: [{ from: path.join(__dirname, "public"), to: "." }],
+      patterns: [{ from: path.join(__dirname, 'public'), to: '.' }]
     }),
-    new CleanWebpackPlugin(),
-  ],
-});
+    new CleanWebpackPlugin()
+  ]
+})
