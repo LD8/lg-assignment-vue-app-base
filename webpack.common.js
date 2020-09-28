@@ -38,6 +38,7 @@ module.exports = {
         use: {
           loader: "file-loader",
           options: {
+            esModules: false,
             outputPath: "assets",
             name: "[name].[ext]",
           },
