@@ -10,8 +10,6 @@ module.exports = {
         test: /\.vue$/,
         use: "vue-loader",
       },
-      // 它会应用到普通的 `.js` 文件
-      // 以及 `.vue` 文件中的 `<script>` 块
       {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
@@ -22,8 +20,6 @@ module.exports = {
           },
         },
       },
-      // 它会应用到普通的 `.css` 文件
-      // 以及 `.vue` 文件中的 `<style>` 块
       {
         test: /\.(css)$/,
         use: ["style-loader", "css-loader"],
@@ -34,11 +30,11 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|gif)$/,
-        // use: "file-loader",
         use: {
           loader: "file-loader",
           options: {
-            esModules: false,
+            // Webpack配置项默认会按照 ES Module 处理，但是插件一般都是按 CommonJS 来处理，所以这里要声明
+            esModule: false,
             outputPath: "assets",
             name: "[name].[ext]",
           },
@@ -50,7 +46,7 @@ module.exports = {
     // 它的职责是将你定义过的其它规则复制并应用到 .vue 文件里相应语言的块
     new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
-      title: "Something",
+      title: "Lagou Vue",
       favicon: path.resolve("public/favicon.ico"),
       template: "./public/index.html",
     }),

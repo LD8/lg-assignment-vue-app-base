@@ -16,7 +16,7 @@ module.exports = merge(common, {
       BASE_URL: JSON.stringify("http://localhost:8080/"),
     }),
     new CopyWebpackPlugin({
-      patterns: [{ from: path.join(__dirname, "public"), to: "public" }],
+      patterns: [{ from: path.join(__dirname, "public"), to: "." }],
     }),
     new CleanWebpackPlugin(),
   ],
